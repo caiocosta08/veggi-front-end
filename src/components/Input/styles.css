@@ -1,0 +1,44 @@
+.input-block {
+  position: relative;
+}
+
+.input-block + .input-block {
+  margin-top: 2.6rem;
+}
+
+.input-block + .select-block {
+  margin-top: 1.4rem;
+}
+
+.input-block label {
+  font: 700 1.4rem Archivo;
+  color: #696969; 
+}
+
+.input-block input {
+  width: 100%;
+  height: 4.6rem;
+  margin-top: 1.4rem;
+  border: 1px solid var(--color-line-in-white); 
+  border-radius: 0.6rem;
+  outline: 0;
+  padding: 0 1.6rem;
+  background: white;
+  font: 1.4rem Roboto;
+  box-shadow: var(--panel-shadow);
+  color: #696969; 
+}
+
+.input-block input::-webkit-input-placeholder {
+  opacity: 0.5; /*Change the opacity between 0 and 1*/
+}
+
+
+.input-block span {
+  font: 600 1.4rem Noto Sans;
+  color:rgb(235, 146, 146);
+}
+
+.input-block h4 {
+  margin-top: .7rem;
+}

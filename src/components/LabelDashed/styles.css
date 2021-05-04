@@ -1,0 +1,30 @@
+
+.form-block .field-form {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.form-block .field-form .input-block {
+    width: 15%;
+}
+  
+.form-block .fields-name {
+width: 80%;
+height: 4rem;
+border: 3px dashed #d3d4d9;
+border-radius: 0.5rem;
+align-self: flex-end;
+justify-self: flex-start;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+padding-left: 2rem;
+font: 400 1.3rem Noto Sans;
+}
+
+.form-block .field-form + .field-form {
+    margin-top: 1.4rem;
+}
+  

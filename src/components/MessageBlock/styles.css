@@ -1,0 +1,66 @@
+.chat .talk-messages {
+  justify-self: flex-end;
+  background: var(--color-base);
+  /* width: 17%;
+  height: 90%; */
+  display: flex;
+  width: 92%;
+  height: 17%;
+  border-radius: 1.4rem;
+  border: 1px solid var(--color-line-in-white);
+  font: 400 1.4rem Roboto;
+  color: var(--color-primary-dark);
+  display: flex;
+  box-shadow: var(--panel-shadow);
+  align-items: center;
+  /* border-left: 1.4rem solid #9F47DF;  */
+}
+
+.chat .talk-messages + .talk-messages {
+  margin-top: 1rem;
+}
+
+.chat .talk-messages img {
+  border-radius: 50%;
+  height:6rem;
+  margin-left: 1rem;
+}
+
+.talk-messages .message-info {
+  font: 400 1.4rem Roboto;
+  color: #696969;
+  opacity: .8;
+  margin-left: 1.7rem;
+  width: 55%;
+}
+
+.message-info h2 {
+  font-size: 1.7rem;
+}
+
+.message-info p {
+  font-size: 1.3rem;
+  margin-top: .6rem;
+  line-height: 1.7rem;
+}
+
+
+.hour-block {
+  height: 100%;
+  width: 12%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.hour-block svg {
+  margin-top: 1.7rem;
+  color: #44c554; 
+}
+
+.hour-block p {
+  font: 500 1.2rem Roboto;
+  color: #696969;
+  opacity: .8;
+}

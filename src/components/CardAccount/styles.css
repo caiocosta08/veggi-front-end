@@ -1,0 +1,101 @@
+
+
+.link-account {
+  width: 100%;
+  height: 83%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.face-account {
+  margin-top: 1rem;
+  height: 80%;
+  width: 20%;
+  background: #4166b4;
+  border-radius: 1rem;
+  border: 1.4px solid var(--color-line-in-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--color-base);
+}
+
+.face-account svg {
+  align-self: center;
+  /* margin-top: 2rem; */
+}
+
+.face-account + .face-account{
+margin-left: 2rem;
+}
+
+.face-account h1 {
+  align-self: center;
+  font: 500 1.9rem Roboto;
+  margin-top: 2rem;
+}
+
+.face-account .button-container {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.face-account .button-container button{
+  margin-top: 2rem;
+  height: 3.8rem;
+  border-radius: 1rem;
+  width: 50%;
+  background: transparent !important;
+  border: 0.1px solid var(--color-line-in-white);
+  font: 400 1.2rem Roboto;
+}
+
+
+.face-account .link-infodata {
+  display: flex;
+  align-items: center;
+}
+
+hr + .link-infodata {
+  margin-top: 1.4rem;
+}
+
+.link-account .link-infodata h1 {
+  align-self: center;
+  font: 500 2rem Roboto;
+  margin-top: 0;
+  margin-left: 1rem;
+}
+
+.link-account .link-infodata h2 {
+  font: 500 1.2rem Roboto;
+}
+
+.link-account .link-infodata p {
+  margin-top: .6rem;
+  font: 300 .9rem Roboto;
+}
+
+.link-infodata .followers_count {
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.svg-container {
+  display: flex;
+  justify-content: center;
+  height: 30%;
+  margin-top: -7rem;
+}
+
+.face-account hr {
+  border: 0;
+  background: var(--color-line-in-white);
+  width: 90%;
+  border-top: 1.5px solid var(--color-line-in-white);
+  opacity: .5;
+  margin-top: 1.4rem;
+}

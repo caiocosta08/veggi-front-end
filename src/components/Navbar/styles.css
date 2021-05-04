@@ -1,0 +1,35 @@
+.navbar {
+  height: 13vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 10px;
+  border-bottom: 7px solid;
+  border-image-source: linear-gradient(to right, #9581f7 0%, #e6a9c3 100%);
+  border-image-slice: 1;
+}
+
+.navbar img {
+  height: 3.4rem;
+  margin-left: 4rem;
+}
+
+.left-content {
+  display: flex;
+  align-items: center;
+}
+
+.left-content img {
+  height: 6rem;
+  margin-right: 3rem;
+  margin-left: 1.6rem !important;
+}
+
+.left-content label {
+  font: 700 1.4rem Roboto;
+  color: #696969; 
+}

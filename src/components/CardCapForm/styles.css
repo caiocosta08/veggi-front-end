@@ -1,0 +1,88 @@
+.main-container { 
+  display: flex;
+  background: var(--color-primary-light);
+  height: 87vh;
+}
+
+
+.card-capture-form {
+  margin: 3rem 3rem 3rem 0;
+  background: var(--color-base);
+  width: 17%;
+  height: 50%;
+  border-radius: .4rem;
+  border: 1.4px solid var(--color-line-in-white);
+  box-shadow: var(--panel-shadow);
+  display: flex;
+  flex-direction: column;
+  color: #5538c0;
+}
+
+.card-capture-form h1 {
+  margin: 1.4rem 3.2rem; ;
+  font: 600 1.2rem Roboto;
+  color: #696969; 
+  opacity: 0.7;
+  text-align: center;
+}
+
+.card-capture-form hr {
+  border: 0;
+  background: var(--color-line-in-white);
+  width: 100%;
+  border-top: 1.4px solid var(--color-line-in-white);
+  opacity: .5;
+}
+
+.card-capture-form .clip-container {
+  margin-top: .8rem;
+  display: flex;
+  justify-content: center;
+}
+
+.button-form {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-form button {
+  width: 70%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: 0;
+  border-radius: .8rem;
+  transition: background-color 1s ;
+  cursor: pointer;
+  font: 400 1.1rem Poppins;
+  color: var(--color-base);
+  background:#5538c0;
+}
+
+.card-capture-form hr:nth-of-type(2){
+  margin-top: 1.7rem;
+}
+.card-capture-form footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem .5rem;
+  color: #696969; 
+  opacity: 0.5;
+}
+.card-capture-form footer svg {
+  margin-left: 1rem;
+}
+
+.card-capture-form footer span {
+  font: 600 1rem Poppins;
+  margin-left: 1rem;
+}
+
+.card-capture-form footer .right-icons{
+  margin-right: 1.3rem;
+}
