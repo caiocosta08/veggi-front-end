@@ -43,7 +43,22 @@ html, body, #root {
     margin-bottom: 2rem;
 }
   
+.table-wrapper {
+    margin-top: 4rem;   
+} 
 
+.MuiDataGrid-root {
+    font-size: 1.3rem !important;
+}
+.MuiTypography-body2  {
+    font-size: 1.2rem !important;
+}
+
+.MuiDataGrid-colCellTitle {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
 
 /* .container {
     width: 100%;

@@ -14,52 +14,6 @@
   height: 83%;
 }
 
-.table-wrapper {
-  overflow: hidden;
-}
 
-.link-account {
-  width: 100%;
-  height: 83%;
-  display: flex;
-  flex-direction: column;
-  overflow-y: scroll;
-}
 
-.top-links {
-  margin-top: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  height: 90%;
-  overflow-y: scroll;
-  justify-content: center;
-}
 
-.twitter {
-  background: #50ACF1 !important;
-}
-
-.instagram {
-  background: linear-gradient(20deg, #fca648 , #EB3654,  #c43a96) !important;
-}
-
-.gmn {
-  background: #4f8ef6 !important;
-}
-
-.pinterest {
-  background: #d0302b !important;
-  margin-left: 0 !important;
-}
-
-.linkedin {
-  background: #3279aa !important;
-}
-
-.youtube {
-  background: #ed3833 !important;
-}
-
-.analytics {
-  background: #f07a39 !important;
-}

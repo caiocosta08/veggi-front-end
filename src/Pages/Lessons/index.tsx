@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import DataTable from 'react-data-table-component';
+import { DataGrid, GridColDef } from '@material-ui/data-grid';
+
 // import { useDispatch, useSelector } from 'react-redux';
 
 import Navbar from '../../components/Navbar';
@@ -11,28 +12,43 @@ import api from '../../services/api';
 import './styles.css';
 
 
-const columns = [
-  {
-    name: 'Data',
-    selector: 'date',
-    sortable: true,
+const columns: GridColDef[] = [
+  { 
+    field: 'id', 
+    headerName: 'ID',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
+  },
+  { 
+    field: 'date',
+    headerName: 'Date',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
+  },
+  { 
+    field: 'status',
+    headerName: 'Status',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
   },
   {
-    name: 'Status',
-    selector: 'status',
-    sortable: true,
-  },
-  {
-    name: 'Start point',
-    selector: 'start_point',
-    sortable: true,
+    field: 'starting_point',
+    headerName: 'Start Point',
+    type: 'number',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
   },
 ];
 
 
 function Lessons() {
 
-  const [ lessonList , setLessonList ] = useState({lessons: []})
+  const [ lessonList , setLessonList ] = useState({lessons: []});
+  const rows = lessonList.lessons;
 
   useEffect(() =>{
     api.get('/lessons').then(response => {
@@ -51,16 +67,18 @@ function Lessons() {
         <Sidebar />
         <div className="body-schedule">
 
-          <PageBody title="Aulas">
-          <p>{lessonList.lessons.map(lesson => {
-            console.log(lesson)
-          })}</p>
-          <div>
-            <DataTable
-              columns={columns}
-              data={lessonList.lessons}
-            />
-          </div>
+        <PageBody title="Aulas">
+            <div className="table-wrapper">
+              <DataGrid  
+                rows={rows} 
+                columns={columns} 
+                pageSize={5}
+                checkboxSelection
+                headerHeight={60}
+                autoHeight={true}
+                
+              />
+            </div>
           </PageBody>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import DataTable from 'react-data-table-component';
+// import DataTable from 'react-data-table-component';
+import { DataGrid, GridColDef, GridValueGetterParams } from '@material-ui/data-grid';
 // import { useDispatch, useSelector } from 'react-redux';
 
 import Navbar from '../../components/Navbar';
@@ -10,29 +11,59 @@ import api from '../../services/api';
 
 import './styles.css';
 
-const columns = [
-  {
-    name: 'Nome',
-    selector: 'first_name',
-    sortable: true,
+
+const columns: GridColDef[] = [
+  { 
+    field: 'id', 
+    headerName: 'ID',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
+  },
+  { 
+    field: 'first_name',
+    headerName: 'First name',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
+  },
+  { 
+    field: 'last_name',
+    headerName: 'Last name',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
   },
   {
-    name: 'E-mail',
-    selector: 'email',
-    sortable: true,
-    right: true,
+    field: 'sex',
+    headerName: 'Gender',
+    type: 'number',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
   },
   {
-    name: 'Idioma',
-    selector: 'language',
-    sortable: true,
-    right: true,
+    field: 'email',
+    headerName: 'E-mail',
+    sortable: false,
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
   },
+  {
+    field: 'country',
+    headerName: 'Country',
+    sortable: false,
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
+  }
 ];
 
 function Users() {
 
   const [ usersList , setUsersList ] = useState({users: []})
+  const rows = usersList.users;
 
   useEffect(() =>{
     api.get('/users').then(response => {
@@ -50,13 +81,15 @@ function Users() {
         <div className="body-schedule">
 
           <PageBody title="Usuários">
-          <p>{usersList.users.map(user => {
-            console.log(user)
-          })}</p>
             <div className="table-wrapper">
-              <DataTable
-                columns={columns}
-                data={usersList.users}
+              <DataGrid  
+                rows={rows} 
+                columns={columns} 
+                pageSize={5}
+                checkboxSelection
+                headerHeight={60}
+                autoHeight={true}
+                
               />
             </div>
           </PageBody>

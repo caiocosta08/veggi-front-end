@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import DataTable from 'react-data-table-component';
-// import { useDispatch, useSelector } from 'react-redux';
+import { DataGrid, GridColDef } from '@material-ui/data-grid';
 
 import Navbar from '../../components/Navbar';
 import PageBody from '../../components/PageBody';
@@ -10,28 +9,43 @@ import api from '../../services/api';
 
 import './styles.css';
 
-const columns = [
-  {
-    name: 'Data',
-    selector: 'date',
-    sortable: true,
+const columns: GridColDef[] = [
+  { 
+    field: 'id', 
+    headerName: 'ID',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
+  },
+  { 
+    field: 'date',
+    headerName: 'Date',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
+  },
+  { 
+    field: 'status',
+    headerName: 'Status',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
   },
   {
-    name: 'Descrição',
-    selector: 'description',
-    sortable: true,
+    field: 'description',
+    headerName: 'Description',
+    type: 'number',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
   },
-  {
-    name: 'Status',
-    selector: 'status',
-    sortable: true,
-  },
-
 ];
+
 
 function Consultations() {
 
-  const [ consultationList , setconsultationList ] = useState({consultations: []})
+  const [ consultationList , setconsultationList ] = useState({consultations: []});
+  const rows = consultationList.consultations;
 
   useEffect(() =>{
     api.get('/consultations').then(response => {
@@ -49,16 +63,18 @@ function Consultations() {
         <Sidebar />
         <div className="body-schedule">
 
-          <PageBody title="Consultas">
-          <p>{consultationList.consultations.map(consultation => {
-            console.log(consultation)
-          })}</p>
-          <div>
-            <DataTable
-              columns={columns}
-              data={consultationList.consultations}
-            />
-          </div>
+        <PageBody title="Aulas">
+            <div className="table-wrapper">
+              <DataGrid  
+                rows={rows} 
+                columns={columns} 
+                pageSize={5}
+                checkboxSelection
+                headerHeight={60}
+                autoHeight={true}
+                
+              />
+            </div>
           </PageBody>
         </div>
       </div>
