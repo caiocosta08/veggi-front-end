@@ -1,9 +1,13 @@
 import React from 'react';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
+import ConsultationForm from './Pages/ConsultationForm';
 import Consultations from './Pages/Consultations';
+import LessonForm from './Pages/LessonForm';
 import Lessons from './Pages/Lessons';
 import Notices from './Pages/Notices';
+import NoticesForm from './Pages/NoticesForm';
+import UserForm from './Pages/UserForm';
 
 // import Home from './Pages/Home';
 // import Login from './Pages/Login';
@@ -25,9 +29,13 @@ function Routes() {
             {/* <Route path="/login" component={Login}/>
             <Route path="/forgot-password" component={ForgotPassword}/> */}
             <PrivateRoute path="/users" component={Users}/>
+            <PrivateRoute path="/user-form" component={UserForm}/>
             <PrivateRoute path="/consultations" component={Consultations}/>
+            <PrivateRoute path="/consultation-form" component={ConsultationForm}/>
             <PrivateRoute path="/lessons" component={Lessons}/>
-            <PrivateRoute path="/news" component={Notices}/>
+            <PrivateRoute path="/lesson-form" component={LessonForm}/>
+            <PrivateRoute path="/notices" component={Notices}/>
+            <PrivateRoute path="/notices-form" component={NoticesForm}/>
             <PrivateRoute path="*" component={() => <h1>Page not found</h1>} />
         </Switch>
     )

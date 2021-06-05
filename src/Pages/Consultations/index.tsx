@@ -63,7 +63,7 @@ function Consultations() {
         <Sidebar />
         <div className="body-schedule">
 
-        <PageBody title="Aulas">
+        <PageBody title="Consultas" link="/consultation-form">
             <div className="table-wrapper">
               <DataGrid  
                 rows={rows} 

@@ -36,7 +36,7 @@
     display: flex;
     background-color: var(--color-button);
     text-decoration: none;
-    border-radius: 3rem;
+    border-radius: 1rem;
     align-items: center;
     justify-content: center;
     height: 4rem;
@@ -72,7 +72,7 @@
 }
 
 .page-body .top-bar-container svg {
-    margin-left: 0.5rem ;
+    margin-left: 1.2rem ;
     /* width: 2.4rem; */
 }
 

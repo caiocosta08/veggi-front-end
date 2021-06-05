@@ -80,7 +80,7 @@ function Users() {
         <Sidebar />
         <div className="body-schedule">
 
-          <PageBody title="Usuários">
+          <PageBody title="Usuários" link="/user-form">
             <div className="table-wrapper">
               <DataGrid  
                 rows={rows} 

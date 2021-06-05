@@ -19,7 +19,7 @@ function Sidebar() {
         <NavLink to="/users" activeClassName="selected" ><FaUserAlt size={15}/>Usuários</NavLink>
         <NavLink to="/consultations" activeClassName="selected"><FaBriefcaseMedical size={15} /> Consultas</NavLink>
         <NavLink to="/lessons" activeClassName="selected" ><FaRegBookmark size={15}/>Aulas</NavLink>
-        <NavLink to="/news" activeClassName="selected"><FaNewspaper size={15} />Notícias</NavLink>
+        <NavLink to="/notices" activeClassName="selected"><FaNewspaper size={15} />Notícias</NavLink>
       </div>
       <div className="footer-sidebar">
         <NavLink to="/settings" activeClassName="selected" ><FaCog size={15} /> Configurações</NavLink>

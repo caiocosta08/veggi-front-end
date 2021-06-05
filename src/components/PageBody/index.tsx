@@ -26,7 +26,6 @@ const  PageBody: React.FC<PageBodyProps> = ({ title, link,  children, newPost, t
                                 <FaArrowLeft size={20}/>
                             </Link>
                             <h1>{title}</h1>
-                            { newPost && <FaLink size={20}/>}
                         </div>
 
                        <div className="wrapper-buttons">
@@ -40,7 +39,7 @@ const  PageBody: React.FC<PageBodyProps> = ({ title, link,  children, newPost, t
                             
                             { link && (
                                 <Link to= {link}>
-                                    Novo Formulário
+                                    Cadastrar Novo
                                     <FaPlus size={17}/>
                                     {/* <img src={addIcon} alt="Novo cadastro"/> */}
                                 </Link>

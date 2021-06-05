@@ -67,7 +67,7 @@ function Lessons() {
         <Sidebar />
         <div className="body-schedule">
 
-        <PageBody title="Aulas">
+        <PageBody title="Aulas" link="/lesson-form">
             <div className="table-wrapper">
               <DataGrid  
                 rows={rows} 

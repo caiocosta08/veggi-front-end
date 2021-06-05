@@ -66,7 +66,7 @@ function Notices() {
         <Sidebar />
         <div className="body-schedule">
 
-        <PageBody title="Notícias">
+        <PageBody title="Notícias" link="/notices-form">
             <div className="table-wrapper">
               <DataGrid  
                 rows={rows} 
