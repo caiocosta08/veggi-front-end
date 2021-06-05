@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import DataTable from 'react-data-table-component';
-import { DataGrid, GridColDef, GridValueGetterParams } from '@material-ui/data-grid';
+import { DataGrid, GridColDef, GridSelectionModelChangeParams, GridValueGetterParams } from '@material-ui/data-grid';
 // import { useDispatch, useSelector } from 'react-redux';
 
 import Navbar from '../../components/Navbar';
@@ -64,6 +64,7 @@ function Users() {
 
   const [ usersList , setUsersList ] = useState({users: []})
   const rows = usersList.users;
+  const [selectedRows, setSelectedRows] = useState([]);
 
   useEffect(() =>{
     api.get('/users').then(response => {
@@ -72,6 +73,28 @@ function Users() {
       // console.log(usersList)
     })
   }, []);
+
+  const handleSelectionChange = (selection: any) => {
+    setSelectedRows(selection.selectionModel);
+    console.log(selection)
+  };
+
+  const handlePurge = async () => {
+    await Promise.all(selectedRows.map(async (selectedRow :any) => {
+        console.log(selectedRow)
+        await api.post('users/delete', {
+          user: {
+            id: selectedRow
+          }
+        })
+      })
+    )
+
+    api.get('/users').then(response => {
+      setUsersList(response.data)
+    })
+
+  }
 
   return (
     <div className="container">
@@ -89,9 +112,10 @@ function Users() {
                 checkboxSelection
                 headerHeight={60}
                 autoHeight={true}
-                
+                onSelectionModelChange={handleSelectionChange}
               />
             </div>
+            { selectedRows.length !== 0 && <button onClick={handlePurge}>Deletar</button>}
           </PageBody>
         </div>
       </div>

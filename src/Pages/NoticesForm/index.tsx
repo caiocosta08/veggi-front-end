@@ -15,6 +15,7 @@ import { FaBarcode, FaRegCreditCard } from 'react-icons/fa';
 
 import './styles.css';
 import TextArea from '../../components/TextArea';
+import api from '../../services/api';
 // import { paymentPage } from '../../store/modules/screen/types';
 // import { setPaymentOption } from '../../store/modules/screen/actions';
 
@@ -37,9 +38,12 @@ function NoticesForm() {
 
   
   const handleSubmit: SubmitHandler<NoticesData> = async data => {
-
-    console.log('submit handle')
-    console.log(data)  
+    try{
+      await api.post('/notices/new', data)
+      alert('Notícia cadastrada com sucesso!')
+    }catch(err){
+      alert('Erro ao cadastrar notícia, tente novamente!')
+    }
   }
 
   return (
