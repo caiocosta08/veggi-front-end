@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { ApplicationState } from '../../store';
 
-// import logotipo from '../../assets/images/icons/logo-sm.png';
+import logotipo from '../../assets/images/logo1.png';
 // import imgPerfil from '../../assets/images/perfil.png';
 
 // import { getUser } from '../../store/modules/user/actions';
@@ -23,7 +23,7 @@ function Navbar() {
   return (
     <div className="navbar ">
 
-      {/* <img src={logotipo} alt="logo-talkis"/> */}
+      <img src={logotipo} alt="logo-talkis"/>
 
       <div className="left-content">
         {/* { console.log(user.data)} */}

@@ -5,7 +5,7 @@
   height: 15%;
   border-radius: 1.2rem;
   border: 1px solid var(--color-line-in-white);
-  font: 700 1.4rem Archivo;
+  font: 700 1.4rem;
   color: #696969;
   display: flex;
   align-items: center;
@@ -26,19 +26,19 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #5538c0;
+  color: #e5315c;
   font: 500 1.6rem Roboto;
   /* transition: background-color 2s; */
 }
 
 .section-bar a:hover {
-  background-color: #5538c0;
+  background-color: #e5315c;
   color: var(--color-base);
   border-radius: 1.6rem;
 }
 
 .selected-navbar-schedule {
-  background-color: #5538c0!important;
+  background-color: #e5315c!important;
   color: var(--color-base) !important;
   border-radius: 1.6rem !important;
 }

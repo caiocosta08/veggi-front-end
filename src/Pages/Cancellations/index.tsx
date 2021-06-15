@@ -31,7 +31,6 @@ const columns: GridColDef[] = [
   {
     field: 'text',
     headerName: 'Texto',
-    type: 'text',
     align: 'center', 
   },
   {

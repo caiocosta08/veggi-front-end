@@ -41,7 +41,7 @@
 .sidebar a::after{
   content: "";
   height: 90%;
-  background: #9F47DF;
+  background: #e5315c;
   width: .7rem;
   position: absolute;
   top: 10%;
@@ -55,18 +55,18 @@
 
 .selected::after{opacity: 1 !important;}
 .selected {
-  color:#9F47DF!important;
+  color:#e5315c!important;
   font: 700 1.4rem !important;
 }
 
 
 .sidebar a:hover {
-  color:#9F47DF;
+  color:#e5315c;
   font: 700 1.4rem;
 }
 
 /* .sidebar a:hover {
-  border-left: .7rem solid #9F47DF;
+  border-left: .7rem solid #e5315c;
   border-bottom-left-radius: 1rem;
   border-top-left-radius: 1rem;
 } */

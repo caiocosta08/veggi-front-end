@@ -43,7 +43,7 @@
     width: 17rem;
     color: var(--color-base);
     transition: opacity 1s ;
-    font: 400 1.3rem Archivo;
+    font: 400 1.3rem;
 }
 
 .page-body .top-bar-container .wrapper-buttons .trash {
@@ -96,7 +96,7 @@
 }
 
 .wrap-title svg {
-    color:#9F47DF;
+    color:#e5315c;
     margin-right: 2rem;
 }
 
