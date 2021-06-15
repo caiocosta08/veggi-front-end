@@ -50,8 +50,6 @@ const columns: GridColDef[] = [
     headerName: 'É psicólogo?',
     sortable: false,
     align: 'center',
-    headerAlign: 'center',
-    flex: 1,
     renderCell: (params: GridCellParams) => (
       <div>
         {(params.value) === 1 ? 'SIM' : 'NÃO'}

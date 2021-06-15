@@ -17,38 +17,28 @@ const columns: GridColDef[] = [
     field: 'id', 
     headerName: 'ID',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
   },
   { 
     field: 'id_user_client',
     headerName: 'ID do cliente',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
   },
   { 
     field: 'id_lesson',
     headerName: 'Id da aula',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
   },
   {
     field: 'text',
     headerName: 'Texto',
     type: 'text',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
   },
   {
     field: 'id_consultation',
     headerName: 'Id da consulta',
     type: 'number',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
   },
 ];
 
