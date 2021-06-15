@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import DataTable from 'react-data-table-component';
-import { DataGrid, GridColDef, GridSelectionModelChangeParams, GridValueGetterParams } from '@material-ui/data-grid';
+import { DataGrid, GridCellParams, GridColDef, GridSelectionModelChangeParams, GridValueGetterParams } from '@material-ui/data-grid';
 // import { useDispatch, useSelector } from 'react-redux';
 
 import Navbar from '../../components/Navbar';
@@ -22,20 +22,7 @@ const columns: GridColDef[] = [
   },
   { 
     field: 'first_name',
-    headerName: 'First name',
-    align: 'center', 
-    
-  },
-  { 
-    field: 'last_name',
-    headerName: 'Last name',
-    align: 'center', 
-    
-  },
-  {
-    field: 'sex',
-    headerName: 'Gender',
-    type: 'number',
+    headerName: 'Primeiro nome',
     align: 'center', 
     
   },
@@ -47,10 +34,45 @@ const columns: GridColDef[] = [
     
   },
   {
-    field: 'country',
-    headerName: 'Country',
+    field: 'is_client',
+    headerName: 'É cliente?',
     sortable: false,
     align: 'center', 
+<<<<<<< HEAD
+    
+=======
+    headerAlign: 'center',
+    flex: 1,
+    renderCell: (params: GridCellParams) => (
+      <div>
+        {(params.value) === 1 ? 'SIM': 'NÃO'}
+      </div>
+    ),
+>>>>>>> 7b9f1dc5dfa5005e9a59eea916b1b1672ab00061
+  },
+  {
+    field: 'is_psychologist',
+    headerName: 'É psicólogo?',
+    sortable: false,
+    align: 'center', 
+<<<<<<< HEAD
+    
+=======
+    headerAlign: 'center',
+    flex: 1,
+    renderCell: (params: GridCellParams) => (
+      <div>
+        {(params.value) === 1 ? 'SIM': 'NÃO'}
+      </div>
+    ),
+>>>>>>> 7b9f1dc5dfa5005e9a59eea916b1b1672ab00061
+  },
+  {
+    field: 'is_driver',
+    headerName: 'É motorista?',
+    sortable: false,
+    align: 'center', 
+<<<<<<< HEAD
     
   },
   {
@@ -66,6 +88,15 @@ const columns: GridColDef[] = [
 
       return <div className="button-see-more" onClick={onClick}>VER DETALHES</div>;
     }
+=======
+    headerAlign: 'center',
+    flex: 1,
+    renderCell: (params: GridCellParams) => (
+      <div>
+        {(params.value) === 1 ? 'SIM': 'NÃO'}
+      </div>
+    ),
+>>>>>>> 7b9f1dc5dfa5005e9a59eea916b1b1672ab00061
   }
 ];
 
@@ -79,7 +110,7 @@ function Users() {
     api.get('/users').then(response => {
       setUsersList(response.data)
       // console.log('RESPONSE', response)
-      // console.log(usersList)
+      console.log(usersList)
     })
   }, []);
 

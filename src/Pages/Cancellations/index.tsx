@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { DataGrid, GridColDef } from '@material-ui/data-grid';
 
+// import { useDispatch, useSelector } from 'react-redux';
+
 import Navbar from '../../components/Navbar';
 import PageBody from '../../components/PageBody';
 import Sidebar from '../../components/Sidebar';
@@ -9,60 +11,58 @@ import api from '../../services/api';
 
 import './styles.css';
 
+
 const columns: GridColDef[] = [
   { 
-    field: 'id',
+    field: 'id', 
     headerName: 'ID',
     align: 'center', 
-    width: 100,
-    
+    headerAlign: 'center',
+    flex: 1,
   },
   { 
-    field: 'date',
-    headerName: 'Data',
+    field: 'id_user_client',
+    headerName: 'ID do cliente',
     align: 'center', 
-    
+    headerAlign: 'center',
+    flex: 1,
   },
   { 
-    field: 'status',
-    headerName: 'Status',
+    field: 'id_lesson',
+    headerName: 'Id da aula',
     align: 'center', 
-    
+    headerAlign: 'center',
+    flex: 1,
   },
   {
-    field: 'description',
-    headerName: 'Descrição',
+    field: 'text',
+    headerName: 'Texto',
+    type: 'text',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
+  },
+  {
+    field: 'id_consultation',
+    headerName: 'Id da consulta',
     type: 'number',
     align: 'center', 
-    
+    headerAlign: 'center',
+    flex: 1,
   },
-  {
-    field: "",
-    headerName: "AÇÃO",
-    width: 140,
-    align: 'center',
-    disableClickEventBubbling: true,
-    renderCell: (params) => {
-      const onClick = () => {
-        console.log(params)
-      };
-
-      return <div className="button-see-more" onClick={onClick}>VER DETALHES</div>;
-    }
-  }
 ];
 
 
-function Consultations() {
+function Cancellations() {
 
-  const [ consultationList , setconsultationList ] = useState({consultations: []});
-  const rows = consultationList.consultations;
+  const [ cancellationList , setCancellationList ] = useState({cancellations: []});
+  const rows = cancellationList.cancellations;
 
   useEffect(() =>{
-    // api.get('/consultations').then(response => {
-      api.get('/consultations/get_detailed_consultations').then(response => {
-      setconsultationList(response.data)
-      console.log('RESPONSE', response.data)
+    api.get('/cancellations/get_all').then(response => {
+      setCancellationList(response.data)
+      console.log('RESPONSE', response)
+      // console.log(lessonList)
     })
   }, []);
 
@@ -74,7 +74,7 @@ function Consultations() {
         <Sidebar />
         <div className="body-schedule">
 
-        <PageBody title="Consultas" link="/consultation-form">
+        <PageBody title="Cancelamentos">
             <div className="table-wrapper">
               <DataGrid  
                 rows={rows} 
@@ -83,7 +83,6 @@ function Consultations() {
                 checkboxSelection
                 headerHeight={60}
                 autoHeight={true}
-                
               />
             </div>
           </PageBody>
@@ -95,4 +94,4 @@ function Consultations() {
   )
 }
 
-export default Consultations;
+export default Cancellations;

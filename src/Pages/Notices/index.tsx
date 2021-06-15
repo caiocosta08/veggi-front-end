@@ -23,19 +23,19 @@ const columns: GridColDef[] = [
   },
   { 
     field: 'title',
-    headerName: 'Title',
+    headerName: 'Título',
     align: 'center', 
     
   },
   { 
     field: 'description',
-    headerName: 'Description',
+    headerName: 'Descrição',
     align: 'center', 
     
   },
   {
     field: 'text',
-    headerName: 'Text',
+    headerName: 'Texto',
     type: 'number',
     align: 'center', 
     

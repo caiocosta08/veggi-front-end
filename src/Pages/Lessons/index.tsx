@@ -21,8 +21,15 @@ const columns: GridColDef[] = [
   },
   {
     field: 'date',
+<<<<<<< HEAD
     headerName: 'Date',
     align: 'center',
+=======
+    headerName: 'Data',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
+>>>>>>> 7b9f1dc5dfa5005e9a59eea916b1b1672ab00061
   },
   {
     field: 'status',
@@ -31,7 +38,7 @@ const columns: GridColDef[] = [
   },
   {
     field: 'starting_point',
-    headerName: 'Start Point',
+    headerName: 'Ponto de partida',
     type: 'number',
     align: 'center',
   },
@@ -76,9 +83,15 @@ function Lessons() {
 
           <PageBody title="Aulas" link="/lesson-form">
             <div className="table-wrapper">
+<<<<<<< HEAD
               <DataGrid
                 rows={rows}
                 columns={columns}
+=======
+              <DataGrid  
+                rows={rows} 
+                columns={columns} 
+>>>>>>> 7b9f1dc5dfa5005e9a59eea916b1b1672ab00061
                 pageSize={5}
                 checkboxSelection
                 headerHeight={60}
