@@ -38,26 +38,18 @@ const columns: GridColDef[] = [
     headerName: 'É cliente?',
     sortable: false,
     align: 'center', 
-<<<<<<< HEAD
-    
-=======
     headerAlign: 'center',
-    flex: 1,
     renderCell: (params: GridCellParams) => (
       <div>
         {(params.value) === 1 ? 'SIM': 'NÃO'}
       </div>
     ),
->>>>>>> 7b9f1dc5dfa5005e9a59eea916b1b1672ab00061
   },
   {
     field: 'is_psychologist',
     headerName: 'É psicólogo?',
     sortable: false,
     align: 'center', 
-<<<<<<< HEAD
-    
-=======
     headerAlign: 'center',
     flex: 1,
     renderCell: (params: GridCellParams) => (
@@ -65,15 +57,12 @@ const columns: GridColDef[] = [
         {(params.value) === 1 ? 'SIM': 'NÃO'}
       </div>
     ),
->>>>>>> 7b9f1dc5dfa5005e9a59eea916b1b1672ab00061
   },
   {
     field: 'is_driver',
     headerName: 'É motorista?',
     sortable: false,
     align: 'center', 
-<<<<<<< HEAD
-    
   },
   {
     field: "",
@@ -88,7 +77,6 @@ const columns: GridColDef[] = [
 
       return <div className="button-see-more" onClick={onClick}>VER DETALHES</div>;
     }
-=======
     headerAlign: 'center',
     flex: 1,
     renderCell: (params: GridCellParams) => (
@@ -96,7 +84,6 @@ const columns: GridColDef[] = [
         {(params.value) === 1 ? 'SIM': 'NÃO'}
       </div>
     ),
->>>>>>> 7b9f1dc5dfa5005e9a59eea916b1b1672ab00061
   }
 ];
 
