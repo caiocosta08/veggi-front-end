@@ -4,6 +4,7 @@ import { getToken } from './auth';
 const api = axios.create({
   // baseURL: "http://192.168.15.34:3131",
   // baseURL: "http://localhost:3030/", //local
+  // baseURL: "http://192.168.15.44:3333",
   baseURL: "http://3.23.104.79/api/",
 })
 

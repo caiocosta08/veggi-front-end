@@ -71,3 +71,12 @@ html, body, #root {
     background: var(--color-background);
 
 } */
+
+.button-see-more {
+    padding: 5px;
+    background-color: #0f212f;
+    color: #FFF;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 10px;
+}

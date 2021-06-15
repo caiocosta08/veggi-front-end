@@ -15,34 +15,45 @@ import './styles.css';
 
 const columns: GridColDef[] = [
   { 
-    field: 'id', 
+    field: 'id',
+    width: 100,
     headerName: 'ID',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    
   },
   { 
     field: 'title',
     headerName: 'Title',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    
   },
   { 
     field: 'description',
     headerName: 'Description',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    
   },
   {
     field: 'text',
     headerName: 'Text',
     type: 'number',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    
   },
+  {
+    field: "",
+    headerName: "AÇÃO",
+    width: 140,
+    align: 'center',
+    disableClickEventBubbling: true,
+    renderCell: (params) => {
+      const onClick = () => {
+        console.log(params)
+      };
+
+      return <div className="button-see-more" onClick={onClick}>VER DETALHES</div>;
+    }
+  }
 ];
 
 

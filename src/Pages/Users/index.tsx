@@ -14,49 +14,58 @@ import './styles.css';
 
 const columns: GridColDef[] = [
   { 
-    field: 'id', 
+    field: 'id',
+    width: 100,
     headerName: 'ID',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    
   },
   { 
     field: 'first_name',
     headerName: 'First name',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    
   },
   { 
     field: 'last_name',
     headerName: 'Last name',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    
   },
   {
     field: 'sex',
     headerName: 'Gender',
     type: 'number',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    
   },
   {
     field: 'email',
     headerName: 'E-mail',
     sortable: false,
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    
   },
   {
     field: 'country',
     headerName: 'Country',
     sortable: false,
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    
+  },
+  {
+    field: "",
+    headerName: "AÇÃO",
+    width: 140,
+    align: 'center',
+    disableClickEventBubbling: true,
+    renderCell: (params) => {
+      const onClick = () => {
+        console.log(params)
+      };
+
+      return <div className="button-see-more" onClick={onClick}>VER DETALHES</div>;
+    }
   }
 ];
 
