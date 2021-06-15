@@ -19,7 +19,7 @@ const columns: GridColDef[] = [
   },
   { 
     field: 'date',
-    headerName: 'Date',
+    headerName: 'Data',
     align: 'center', 
     headerAlign: 'center',
     flex: 1,
@@ -33,7 +33,7 @@ const columns: GridColDef[] = [
   },
   {
     field: 'description',
-    headerName: 'Description',
+    headerName: 'Descrição',
     type: 'number',
     align: 'center', 
     headerAlign: 'center',

@@ -21,22 +21,30 @@ const columns: GridColDef[] = [
     flex: 1,
   },
   { 
-    field: 'date',
-    headerName: 'Data',
+    field: 'id_user_client',
+    headerName: 'ID do cliente',
     align: 'center', 
     headerAlign: 'center',
     flex: 1,
   },
   { 
-    field: 'status',
-    headerName: 'Status',
+    field: 'id_lesson',
+    headerName: 'Id da aula',
     align: 'center', 
     headerAlign: 'center',
     flex: 1,
   },
   {
-    field: 'starting_point',
-    headerName: 'Ponto de partida',
+    field: 'text',
+    headerName: 'Texto',
+    type: 'text',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
+  },
+  {
+    field: 'id_consultation',
+    headerName: 'Id da consulta',
     type: 'number',
     align: 'center', 
     headerAlign: 'center',
@@ -45,19 +53,18 @@ const columns: GridColDef[] = [
 ];
 
 
-function Lessons() {
+function Cancellations() {
 
-  const [ lessonList , setLessonList ] = useState({lessons: []});
-  const rows = lessonList.lessons;
+  const [ cancellationList , setCancellationList ] = useState({cancellations: []});
+  const rows = cancellationList.cancellations;
 
   useEffect(() =>{
-    api.get('/lessons').then(response => {
-      setLessonList(response.data)
-      // console.log('RESPONSE', response)
+    api.get('/cancellations/get_all').then(response => {
+      setCancellationList(response.data)
+      console.log('RESPONSE', response)
       // console.log(lessonList)
     })
   }, []);
-
 
 
   return (
@@ -67,7 +74,7 @@ function Lessons() {
         <Sidebar />
         <div className="body-schedule">
 
-        <PageBody title="Aulas" link="/lesson-form">
+        <PageBody title="Cancelamentos">
             <div className="table-wrapper">
               <DataGrid  
                 rows={rows} 
@@ -87,4 +94,4 @@ function Lessons() {
   )
 }
 
-export default Lessons;
+export default Cancellations;

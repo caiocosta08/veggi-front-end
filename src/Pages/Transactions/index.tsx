@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-// import DataTable from 'react-data-table-component';
-import { DataGrid, GridCellParams, GridColDef, GridSelectionModelChangeParams, GridValueGetterParams } from '@material-ui/data-grid';
+import { DataGrid, GridCellParams, GridColDef } from '@material-ui/data-grid';
+
 // import { useDispatch, useSelector } from 'react-redux';
 
 import Navbar from '../../components/Navbar';
@@ -14,31 +14,57 @@ import './styles.css';
 
 const columns: GridColDef[] = [
   { 
-    field: 'id', 
-    headerName: 'ID',
+    field: 'paymentId', 
+    headerName: 'ID do pagamento',
     align: 'center', 
     headerAlign: 'center',
     flex: 1,
   },
   { 
-    field: 'first_name',
-    headerName: 'Primeiro nome',
+    field: 'tid', 
+    headerName: 'TID',
     align: 'center', 
     headerAlign: 'center',
     flex: 1,
   },
-  {
-    field: 'email',
-    headerName: 'E-mail',
-    sortable: false,
+  { 
+    field: 'id_client', 
+    headerName: 'Id do cliente',
     align: 'center', 
     headerAlign: 'center',
     flex: 1,
   },
-  {
-    field: 'is_client',
-    headerName: 'É cliente?',
-    sortable: false,
+  { 
+    field: 'authorizationCode', 
+    headerName: 'Código de autorização',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
+  },
+  { 
+    field: 'buyValue', 
+    headerName: 'Valor da compra',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
+  },
+  { 
+    field: 'returnCode', 
+    headerName: 'Código de retorno',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
+  },
+  { 
+    field: 'returnMessage', 
+    headerName: 'Mensagem de retorno',
+    align: 'center', 
+    headerAlign: 'center',
+    flex: 1,
+  },
+  { 
+    field: 'capture', 
+    headerName: 'Faturado',
     align: 'center', 
     headerAlign: 'center',
     flex: 1,
@@ -48,10 +74,9 @@ const columns: GridColDef[] = [
       </div>
     ),
   },
-  {
-    field: 'is_psychologist',
-    headerName: 'É psicólogo?',
-    sortable: false,
+  { 
+    field: 'isClassCredits', 
+    headerName: 'Crédito de aula?',
     align: 'center', 
     headerAlign: 'center',
     flex: 1,
@@ -61,10 +86,9 @@ const columns: GridColDef[] = [
       </div>
     ),
   },
-  {
-    field: 'is_driver',
-    headerName: 'É motorista?',
-    sortable: false,
+  { 
+    field: 'isConsultationCredits', 
+    headerName: 'Crédito de consulta?',
     align: 'center', 
     headerAlign: 'center',
     flex: 1,
@@ -73,44 +97,25 @@ const columns: GridColDef[] = [
         {(params.value) === 1 ? 'SIM': 'NÃO'}
       </div>
     ),
-  }
+  },
+
 ];
 
-function Users() {
 
-  const [ usersList , setUsersList ] = useState({users: []})
-  const rows = usersList.users;
-  const [selectedRows, setSelectedRows] = useState([]);
+function Transactions() {
+
+  const [ transactionsList , setTransactionsList ] = useState({transactions: []});
+  const rows = transactionsList.transactions;
 
   useEffect(() =>{
-    api.get('/users').then(response => {
-      setUsersList(response.data)
-      // console.log('RESPONSE', response)
-      console.log(usersList)
+    api.get('/transactions/get_all').then(response => {
+      setTransactionsList(response.data)
+      console.log('RESPONSE', response)
+      // console.log(lessonList)
     })
   }, []);
 
-  const handleSelectionChange = (selection: any) => {
-    setSelectedRows(selection.selectionModel);
-    console.log(selection)
-  };
 
-  const handlePurge = async () => {
-    await Promise.all(selectedRows.map(async (selectedRow :any) => {
-        console.log(selectedRow)
-        await api.post('users/delete', {
-          user: {
-            id: selectedRow
-          }
-        })
-      })
-    )
-
-    api.get('/users').then(response => {
-      setUsersList(response.data)
-    })
-
-  }
 
   return (
     <div className="container">
@@ -119,7 +124,7 @@ function Users() {
         <Sidebar />
         <div className="body-schedule">
 
-          <PageBody title="Usuários" link="/user-form">
+        <PageBody title="Transações" >
             <div className="table-wrapper">
               <DataGrid  
                 rows={rows} 
@@ -128,10 +133,9 @@ function Users() {
                 checkboxSelection
                 headerHeight={60}
                 autoHeight={true}
-                onSelectionModelChange={handleSelectionChange}
+                getRowId={(row)=> row.paymentId}
               />
             </div>
-            { selectedRows.length !== 0 && <button onClick={handlePurge}>Deletar</button>}
           </PageBody>
         </div>
       </div>
@@ -141,4 +145,4 @@ function Users() {
   )
 }
 
-export default Users;
+export default Transactions;
