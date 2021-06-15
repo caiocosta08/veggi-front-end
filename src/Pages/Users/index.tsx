@@ -13,35 +13,35 @@ import './styles.css';
 
 
 const columns: GridColDef[] = [
-  { 
+  {
     field: 'id',
     width: 100,
     headerName: 'ID',
-    align: 'center', 
-    
+    align: 'center',
+
   },
-  { 
+  {
     field: 'first_name',
     headerName: 'Primeiro nome',
-    align: 'center', 
-    
+    align: 'center',
+
   },
   {
     field: 'email',
     headerName: 'E-mail',
     sortable: false,
-    align: 'center', 
-    
+    align: 'center',
+
   },
   {
     field: 'is_client',
     headerName: 'É cliente?',
     sortable: false,
-    align: 'center', 
+    align: 'center',
     headerAlign: 'center',
     renderCell: (params: GridCellParams) => (
       <div>
-        {(params.value) === 1 ? 'SIM': 'NÃO'}
+        {(params.value) === 1 ? 'SIM' : 'NÃO'}
       </div>
     ),
   },
@@ -49,12 +49,12 @@ const columns: GridColDef[] = [
     field: 'is_psychologist',
     headerName: 'É psicólogo?',
     sortable: false,
-    align: 'center', 
+    align: 'center',
     headerAlign: 'center',
     flex: 1,
     renderCell: (params: GridCellParams) => (
       <div>
-        {(params.value) === 1 ? 'SIM': 'NÃO'}
+        {(params.value) === 1 ? 'SIM' : 'NÃO'}
       </div>
     ),
   },
@@ -62,7 +62,12 @@ const columns: GridColDef[] = [
     field: 'is_driver',
     headerName: 'É motorista?',
     sortable: false,
-    align: 'center', 
+    align: 'center',
+    renderCell: (params: GridCellParams) => (
+      <div>
+        {(params.value) === 1 ? 'SIM' : 'NÃO'}
+      </div>
+    )
   },
   {
     field: "",
@@ -76,24 +81,17 @@ const columns: GridColDef[] = [
       };
 
       return <div className="button-see-more" onClick={onClick}>VER DETALHES</div>;
-    }
-    headerAlign: 'center',
-    flex: 1,
-    renderCell: (params: GridCellParams) => (
-      <div>
-        {(params.value) === 1 ? 'SIM': 'NÃO'}
-      </div>
-    ),
+    },
   }
 ];
 
 function Users() {
 
-  const [ usersList , setUsersList ] = useState({users: []})
+  const [usersList, setUsersList] = useState({ users: [] })
   const rows = usersList.users;
   const [selectedRows, setSelectedRows] = useState([]);
 
-  useEffect(() =>{
+  useEffect(() => {
     api.get('/users').then(response => {
       setUsersList(response.data)
       // console.log('RESPONSE', response)
@@ -107,14 +105,14 @@ function Users() {
   };
 
   const handlePurge = async () => {
-    await Promise.all(selectedRows.map(async (selectedRow :any) => {
-        console.log(selectedRow)
-        await api.post('users/delete', {
-          user: {
-            id: selectedRow
-          }
-        })
+    await Promise.all(selectedRows.map(async (selectedRow: any) => {
+      console.log(selectedRow)
+      await api.post('users/delete', {
+        user: {
+          id: selectedRow
+        }
       })
+    })
     )
 
     api.get('/users').then(response => {
@@ -132,9 +130,9 @@ function Users() {
 
           <PageBody title="Usuários" link="/user-form">
             <div className="table-wrapper">
-              <DataGrid  
-                rows={rows} 
-                columns={columns} 
+              <DataGrid
+                rows={rows}
+                columns={columns}
                 pageSize={5}
                 checkboxSelection
                 headerHeight={60}
@@ -142,7 +140,7 @@ function Users() {
                 onSelectionModelChange={handleSelectionChange}
               />
             </div>
-            { selectedRows.length !== 0 && <button onClick={handlePurge}>Deletar</button>}
+            {selectedRows.length !== 0 && <button onClick={handlePurge}>Deletar</button>}
           </PageBody>
         </div>
       </div>
