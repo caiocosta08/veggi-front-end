@@ -14,26 +14,24 @@ import './styles.css';
 
 const columns: GridColDef[] = [
   { 
-    field: 'id', 
+    field: 'id',
+    width: 100,
     headerName: 'ID',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    
   },
   { 
     field: 'first_name',
     headerName: 'Primeiro nome',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    
   },
   {
     field: 'email',
     headerName: 'E-mail',
     sortable: false,
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    
   },
   {
     field: 'is_client',
@@ -41,7 +39,6 @@ const columns: GridColDef[] = [
     sortable: false,
     align: 'center', 
     headerAlign: 'center',
-    flex: 1,
     renderCell: (params: GridCellParams) => (
       <div>
         {(params.value) === 1 ? 'SIM': 'NÃO'}
@@ -66,6 +63,20 @@ const columns: GridColDef[] = [
     headerName: 'É motorista?',
     sortable: false,
     align: 'center', 
+  },
+  {
+    field: "",
+    headerName: "AÇÃO",
+    width: 140,
+    align: 'center',
+    disableClickEventBubbling: true,
+    renderCell: (params) => {
+      const onClick = () => {
+        console.log(params)
+      };
+
+      return <div className="button-see-more" onClick={onClick}>VER DETALHES</div>;
+    }
     headerAlign: 'center',
     flex: 1,
     renderCell: (params: GridCellParams) => (

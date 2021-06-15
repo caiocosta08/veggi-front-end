@@ -11,34 +11,45 @@ import './styles.css';
 
 const columns: GridColDef[] = [
   { 
-    field: 'id', 
+    field: 'id',
     headerName: 'ID',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    width: 100,
+    
   },
   { 
     field: 'date',
     headerName: 'Data',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    
   },
   { 
     field: 'status',
     headerName: 'Status',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    
   },
   {
     field: 'description',
     headerName: 'Descrição',
     type: 'number',
     align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    
   },
+  {
+    field: "",
+    headerName: "AÇÃO",
+    width: 140,
+    align: 'center',
+    disableClickEventBubbling: true,
+    renderCell: (params) => {
+      const onClick = () => {
+        console.log(params)
+      };
+
+      return <div className="button-see-more" onClick={onClick}>VER DETALHES</div>;
+    }
+  }
 ];
 
 
@@ -48,10 +59,10 @@ function Consultations() {
   const rows = consultationList.consultations;
 
   useEffect(() =>{
-    api.get('/consultations').then(response => {
+    // api.get('/consultations').then(response => {
+      api.get('/consultations/get_detailed_consultations').then(response => {
       setconsultationList(response.data)
-      // console.log('RESPONSE', response)
-      // console.log(consultationList)
+      console.log('RESPONSE', response.data)
     })
   }, []);
 

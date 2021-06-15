@@ -13,47 +13,55 @@ import './styles.css';
 
 
 const columns: GridColDef[] = [
-  { 
-    field: 'id', 
+  {
+    field: 'id',
     headerName: 'ID',
-    align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    align: 'center',
+    width: 100,
   },
-  { 
+  {
     field: 'date',
     headerName: 'Data',
     align: 'center', 
     headerAlign: 'center',
-    flex: 1,
   },
-  { 
+  {
     field: 'status',
     headerName: 'Status',
-    align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    align: 'center',
   },
   {
     field: 'starting_point',
     headerName: 'Ponto de partida',
     type: 'number',
-    align: 'center', 
-    headerAlign: 'center',
-    flex: 1,
+    align: 'center',
   },
+  {
+    field: "",
+    headerName: "AÇÃO",
+    width: 140,
+    align: 'center',
+    disableClickEventBubbling: true,
+    renderCell: (params) => {
+      const onClick = () => {
+        console.log(params)
+      };
+
+      return <div className="button-see-more" onClick={onClick}>VER DETALHES</div>;
+    }
+  }
 ];
 
 
 function Lessons() {
 
-  const [ lessonList , setLessonList ] = useState({lessons: []});
+  const [lessonList, setLessonList] = useState({ lessons: [] });
   const rows = lessonList.lessons;
 
-  useEffect(() =>{
-    api.get('/lessons').then(response => {
+  useEffect(() => {
+    api.get('/lessons/get_detailed_lessons').then(response => {
       setLessonList(response.data)
-      // console.log('RESPONSE', response)
+      console.log('RESPONSE', response.data)
       // console.log(lessonList)
     })
   }, []);
@@ -67,7 +75,7 @@ function Lessons() {
         <Sidebar />
         <div className="body-schedule">
 
-        <PageBody title="Aulas" link="/lesson-form">
+          <PageBody title="Aulas" link="/lesson-form">
             <div className="table-wrapper">
               <DataGrid  
                 rows={rows} 
