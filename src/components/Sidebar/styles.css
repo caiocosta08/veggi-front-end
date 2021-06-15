@@ -56,13 +56,13 @@
 .selected::after{opacity: 1 !important;}
 .selected {
   color:#9F47DF!important;
-  font: 700 1.4rem Archivo !important;
+  font: 700 1.4rem !important;
 }
 
 
 .sidebar a:hover {
   color:#9F47DF;
-  font: 700 1.4rem Archivo;
+  font: 700 1.4rem;
 }
 
 /* .sidebar a:hover {

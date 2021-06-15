@@ -72,11 +72,10 @@ function Lessons() {
               <DataGrid  
                 rows={rows} 
                 columns={columns} 
-                pageSize={5}
+                pageSize={10}
                 checkboxSelection
                 headerHeight={60}
                 autoHeight={true}
-                
               />
             </div>
           </PageBody>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { FaArrowLeft,  FaLink, FaPlus, FaTrash, FaWallet } from 'react-icons/fa';
 // import addIcon from '../../assets/images/icons/add-white.svg';
@@ -16,13 +16,14 @@ interface PageBodyProps {
 }
 
 const  PageBody: React.FC<PageBodyProps> = ({ title, link,  children, newPost, trash, creditPage}) => {
+    const history = useHistory();
     return (
         // <div className="container">
             <article className="page-body">
                <header className="top-header">
                     <div className="top-bar-container">
                         <div className="wrap-title">
-                            <Link to="/dashboard">
+                            <Link to="" onClick={ () => history.goBack()}>
                                 <FaArrowLeft size={20}/>
                             </Link>
                             <h1>{title}</h1>
