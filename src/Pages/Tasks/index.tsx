@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { DataGrid, GridColDef } from '@material-ui/data-grid';
 
-// import { useDispatch, useSelector } from 'react-redux';
-
 import Navbar from '../../components/Navbar';
 import PageBody from '../../components/PageBody';
 import Sidebar from '../../components/Sidebar';
@@ -10,7 +8,6 @@ import api from '../../services/api';
 
 
 import './styles.css';
-
 
 const columns: GridColDef[] = [
   {
@@ -20,21 +17,22 @@ const columns: GridColDef[] = [
     width: 100,
   },
   {
-    field: 'date',
-    headerName: 'Data',
-    align: 'center', 
-    headerAlign: 'center',
+    field: 'description',
+    headerName: 'Descrição',
+    align: 'center',
+    width: 140,
   },
   {
-    field: 'status',
-    headerName: 'Status',
+    field: 'state',
+    headerName: 'Estado',
     align: 'center',
+    width: 140,
   },
   {
-    field: 'starting_point',
-    headerName: 'Ponto de partida',
-    type: 'number',
+    field: 'id_user',
+    headerName: 'ID do Usuário',
     align: 'center',
+    width: 140,
   },
   {
     field: "",
@@ -46,26 +44,23 @@ const columns: GridColDef[] = [
       const onClick = () => {
         console.log(params)
       };
-
       return <div className="button-see-more" onClick={onClick}>VER DETALHES</div>;
     }
   }
 ];
 
 
-function Lessons() {
+function Tasks() {
 
-  const [lessonList, setLessonList] = useState({ lessons: [] });
-  const rows = lessonList.lessons;
+  const [tasksList, setTasksList] = useState({ tasks: [] });
+  const rows = tasksList.tasks;
 
   useEffect(() => {
-    api.get('/lessons/get_detailed_lessons').then(response => {
-      setLessonList(response.data)
+    api.get('/tasks/').then(response => {
+      setTasksList(response.data)
       console.log('RESPONSE', response.data)
-      // console.log(lessonList)
     })
   }, []);
-
 
 
   return (
@@ -75,15 +70,16 @@ function Lessons() {
         <Sidebar />
         <div className="body-schedule">
 
-          <PageBody title="Aulas" link="/lesson-form">
+          <PageBody title="Tarefas" link="/tasks-form">
             <div className="table-wrapper">
-              <DataGrid  
-                rows={rows} 
-                columns={columns} 
+              <DataGrid
+                rows={rows}
+                columns={columns}
                 pageSize={5}
                 checkboxSelection
                 headerHeight={60}
                 autoHeight={true}
+
               />
             </div>
           </PageBody>
@@ -95,4 +91,4 @@ function Lessons() {
   )
 }
 
-export default Lessons;
+export default Tasks;

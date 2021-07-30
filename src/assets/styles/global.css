@@ -6,14 +6,14 @@
     --color-primary: #294251;
     --color-primary-light: #f0f2fd;
     --color-primary-dark: #0f212f;
-    --color-secundary: #e5315c 100%;
-    --color-secundary-dark: ##e5315c;
+    --color-secundary: #24d15d 100%;
+    --color-secundary-dark: #24d15d;
     --color-input-background: #F8F8FC;
     --color-line-in-white: #E6E6F0;
     --color-link-menu: #FFFFFF;
     --color-base: #FFFFFF;
     --color-button-text: #000000;
-    --color-button: #f54971;
+    --color-button: #24d15d;
     --panel-shadow: 0 1px 3px 0 rgba(7, 7, 7, 0.2);
 }
 

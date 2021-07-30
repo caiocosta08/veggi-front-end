@@ -15,7 +15,7 @@
   box-shadow: var(--panel-shadow);
   display: flex;
   flex-direction: column;
-  color: #e5315c;
+  color: #24d15d;
 }
 
 .card-capture-form h1 {
@@ -60,7 +60,7 @@
   cursor: pointer;
   font: 400 1.1rem Poppins;
   color: var(--color-base);
-  background:#e5315c;
+  background:#24d15d;
 }
 
 .card-capture-form hr:nth-of-type(2){

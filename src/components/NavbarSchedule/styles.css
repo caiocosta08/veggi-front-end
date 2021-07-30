@@ -26,19 +26,19 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #e5315c;
+  color: #24d15d;
   font: 500 1.6rem Roboto;
   /* transition: background-color 2s; */
 }
 
 .section-bar a:hover {
-  background-color: #e5315c;
+  background-color: #24d15d;
   color: var(--color-base);
   border-radius: 1.6rem;
 }
 
 .selected-navbar-schedule {
-  background-color: #e5315c!important;
+  background-color: #24d15d!important;
   color: var(--color-base) !important;
   border-radius: 1.6rem !important;
 }
