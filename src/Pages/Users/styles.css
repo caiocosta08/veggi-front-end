@@ -1,0 +1,19 @@
+.main-container { 
+  display: flex;
+  background: var(--color-primary-light);
+  height: 87vh;
+}
+
+.body-schedule {
+  margin: 3rem 3rem 0 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.body-schedule .page-body {
+  height: 83%;
+}
+
+
+
+

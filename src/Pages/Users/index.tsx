@@ -8,7 +8,7 @@ import Navbar from '../../components/Navbar';
 import PageBody from '../../components/PageBody';
 import Sidebar from '../../components/Sidebar';
 import api from '../../services/api';
-import * as UsersController from '../users.controller';
+import * as UsersController from '../../controllers/users.controller';
 
 import { FaBriefcaseMedical, FaCog, FaList, FaNewspaper, FaPen, FaRegBookmark, FaTrash, FaUserAlt } from 'react-icons/fa';
 import './styles.css';
@@ -33,43 +33,67 @@ function Users() {
       width: 300,
     },
     {
-      field: "",
-      headerName: "TAREFAS",
-      width: 300,
+      field: 'email',
+      headerName: 'E-mail',
       align: 'center',
-      disableClickEventBubbling: true,
-      renderCell: (params) => {
-        const onClick = () => {
-          dispatch(setCurrentUser(params.row));
-          history.push('current-user-tasks');
-        };
-        const onClickEdit = () => {
-          dispatch(setCurrentUser(params.row));
-          history.push('edit-user-form');
-        };
-        const onClickDel = async () => {
-          try {
-            let response = await UsersController.remove(params.row.id);
-            response = await UsersController.getAll();
-            setUsersList(response?.data);
-          } catch (error) {
-
-          }
-        };
-
-        return (
-          <div style={{ display: 'flex', flexDirection: 'row' }}>
-            <div style={{ marginLeft: 5, marginRight: 5, backgroundColor: "transparent" }} className="button-see-more" onClick={onClick}><FaList size={15} color={"#0f212f"} /></div>
-            <div style={{ marginLeft: 5, marginRight: 5, backgroundColor: "transparent" }} className="button-see-more" onClick={onClickEdit}><FaPen size={15} color={"#0f212f"} /></div>
-            <div style={{ marginLeft: 5, marginRight: 5, backgroundColor: "transparent" }} className="button-see-more" onClick={onClickDel}><FaTrash size={15} color={"#0f212f"} /></div>
-          </div>);
-      },
+      width: 300,
     },
+    {
+      field: 'post',
+      headerName: 'Cargo',
+      align: 'center',
+      width: 300,
+    },
+    {
+      field: 'level',
+      headerName: 'Nível',
+      align: 'center',
+      width: 300,
+    },
+    {
+      field: 'status',
+      headerName: 'Status',
+      align: 'center',
+      width: 300,
+    },
+    // {
+    //   field: "",
+    //   headerName: "TAREFAS",
+    //   width: 300,
+    //   align: 'center',
+    //   disableClickEventBubbling: true,
+    //   renderCell: (params) => {
+    //     const onClick = () => {
+    //       dispatch(setCurrentUser(params.row));
+    //       history.push('current-user-tasks');
+    //     };
+    //     const onClickEdit = () => {
+    //       dispatch(setCurrentUser(params.row));
+    //       history.push('edit-user-form');
+    //     };
+    //     const onClickDel = async () => {
+    //       try {
+    //         let response = await UsersController.remove(params.row.id);
+    //         response = await UsersController.getAll();
+    //         setUsersList(response?.data);
+    //       } catch (error) {
+
+    //       }
+    //     };
+
+    //     return (
+    //       <div style={{ display: 'flex', flexDirection: 'row' }}>
+    //         <div style={{ marginLeft: 5, marginRight: 5, backgroundColor: "transparent" }} className="button-see-more" onClick={onClick}><FaList size={15} color={"#0f212f"} /></div>
+    //         <div style={{ marginLeft: 5, marginRight: 5, backgroundColor: "transparent" }} className="button-see-more" onClick={onClickEdit}><FaPen size={15} color={"#0f212f"} /></div>
+    //         <div style={{ marginLeft: 5, marginRight: 5, backgroundColor: "transparent" }} className="button-see-more" onClick={onClickDel}><FaTrash size={15} color={"#0f212f"} /></div>
+    //       </div>);
+    //   },
+    // },
     
   ];
 
   const [usersList, setUsersList] = useState({ users: [] })
-  const rows = usersList.users;
+  const rows = usersList?.users || [];
   const [selectedRows, setSelectedRows] = useState([]);
 
 

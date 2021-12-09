@@ -6,7 +6,9 @@ import Tasks from './Pages/Tasks';
 import CurrentUserTasks from './Pages/CurrentUserTasks';
 import UserForm from './Pages/UserForm';
 import EditUserForm from './Pages/EditUserForm';
-import Users from './controllers/Users';
+import Users from './Pages/Users';
+import Costs from './Pages/Costs';
+import CostsForm from './Pages/CostsForm';
 
 
 function Routes() {
@@ -19,6 +21,8 @@ function Routes() {
             <Route path="/tasks" component={Tasks}/>
             <Route path="/tasks-form" component={TasksForm}/>
             <Route path="/current-user-tasks" component={CurrentUserTasks}/>
+            <Route path="/costs" component={Costs}/>
+            <Route path="/costs-form" component={CostsForm}/>
             <Route path="*" component={() => <h1>Page not found</h1>} />
         </Switch>
     )
